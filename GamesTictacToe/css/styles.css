@@ -60,6 +60,13 @@
   left: 50%; */
 }
 
+.resultDraw::after {
+  content: "IT'S DRAW";
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+}
+
 .Cross::after {
   content: '❌';
   position: relative;
@@ -76,4 +83,8 @@
   position: relative;
   top: 25%;
   left: 25%;
+}
+
+.disabled {
+  cursor: not-allowed;
 }

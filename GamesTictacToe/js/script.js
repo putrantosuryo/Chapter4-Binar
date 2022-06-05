@@ -49,42 +49,56 @@ function startGame() {
 
 function restartGame() {
   boxElements.forEach((box) => {
-    box.classList.remove(cross);
-    box.classList.remove(circle);
+    box.classList.remove(cross,circle,'disabled');
+    // box.classList.remove(circle);
     box.innerHTML ='';
   });
-  resultElement.classList.remove('result'+cross)
-  resultElement.classList.remove('result'+circle)
+  resultElement.classList.remove('result'+cross,'result'+circle,'resultDraw')
   startGame();
   turnCross = true;
+}
+
+function disabledAll(){
+  boxElements.forEach((box) => {
+    box.classList.add("disabled");
+    box.removeEventListener("click",handleClick);
+  });
 }
 
 function checkWinner(player){
   const tempContainer = new Map();
   let boxName = "";
   let boxValue = "";
+  let isDone = true;
   boxElements.forEach((box) => {
+  
     boxName = box.classList[1].toString();
     boxValue = document.getElementById(box.classList[1]).value;
+    if(boxValue == '')isDone =false;
     tempContainer.set(boxName,boxValue);
   });
 
- //box 123
-  if(tempContainer.get("box1") == player && tempContainer.get("box2") == player && tempContainer.get("box3")== player )resultElement.classList.add('result'+player)
+if(!isDone){
+  //box 123
+  if(tempContainer.get("box1") == player && tempContainer.get("box2") == player && tempContainer.get("box3")== player )resultElement.classList.add('result'+player),disabledAll();
  //box 456
-  if(tempContainer.get("box4") == player && tempContainer.get("box5") == player && tempContainer.get("box6")== player )resultElement.classList.add('result'+player)
+  else if(tempContainer.get("box4") == player && tempContainer.get("box5") == player && tempContainer.get("box6")== player )resultElement.classList.add('result'+player),disabledAll();
  //box 789
-  if(tempContainer.get("box7") == player && tempContainer.get("box8") == player && tempContainer.get("box9")== player )resultElement.classList.add('result'+player)
+  else if(tempContainer.get("box7") == player && tempContainer.get("box8") == player && tempContainer.get("box9")== player )resultElement.classList.add('result'+player),disabledAll();
  //box 147
-  if(tempContainer.get("box1") == player && tempContainer.get("box4") == player && tempContainer.get("box7")== player )resultElement.classList.add('result'+player)
+  else if(tempContainer.get("box1") == player && tempContainer.get("box4") == player && tempContainer.get("box7")== player )resultElement.classList.add('result'+player),disabledAll();
  //box 258
-  if(tempContainer.get("box2") == player && tempContainer.get("box5") == player && tempContainer.get("box8")== player )resultElement.classList.add('result'+player)
+  else if(tempContainer.get("box2") == player && tempContainer.get("box5") == player && tempContainer.get("box8")== player )resultElement.classList.add('result'+player),disabledAll();
   //box 369
-  if(tempContainer.get("box3") == player && tempContainer.get("box6") == player && tempContainer.get("box9")== player )resultElement.classList.add('result'+player)
+  else if(tempContainer.get("box3") == player && tempContainer.get("box6") == player && tempContainer.get("box9")== player )resultElement.classList.add('result'+player),disabledAll();
   //box 159
-  if(tempContainer.get("box1") == player && tempContainer.get("box5") == player && tempContainer.get("box9")== player )resultElement.classList.add('result'+player)
+  else if(tempContainer.get("box1") == player && tempContainer.get("box5") == player && tempContainer.get("box9")== player )resultElement.classList.add('result'+player),disabledAll();
   //box 357
-  if(tempContainer.get("box3") == player && tempContainer.get("box5") == player && tempContainer.get("box7")== player )resultElement.classList.add('result'+player)
+  else if(tempContainer.get("box3") == player && tempContainer.get("box5") == player && tempContainer.get("box7")== player )resultElement.classList.add('result'+player),disabledAll();
+}else{
+  resultElement.classList.add('resultDraw'),disabledAll();
+}
+
 }
 
 
