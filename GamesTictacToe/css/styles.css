@@ -42,22 +42,36 @@
   background-color: blue !important;
 } */
 
-.cross {
+.Cross {
   background-color: white;
 }
 
-.cross::after {
+.resultCross::after {
+  content: "YES PLAYER CROSS WIN";
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+}
+
+.resultCircle::after {
+  content: "YES PLAYER CIRCLE WIN";
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+}
+
+.Cross::after {
   content: '❌';
   position: relative;
   top: 25%;
   left: 25%;
 }
 
-.circle {
+.Circle {
   background-color: white;
 }
 
-.circle::after {
+.Circle::after {
   content: '⭕';
   position: relative;
   top: 25%;
