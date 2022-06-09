@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // //Default OOP
+        // class PersegiPanjang{
+        //     constructor(lebar,panjang){
+        //         this.lebar = lebar;
+        //         this.panjang = panjang;
+        //     }
+    
+        //     luasPersegiPanjang(){
+        //         console.log(" Luas : "+this.panjang * this.lebar);
+        //     }
+    
+        //     kelilingPersegiPanjang(){
+        //         console.log(" Keliling : "+((2*this.panjang) + (2*this.lebar)));
+        //     }
+        // }
+    
+        // const coba = new PersegiPanjang(4,7);
+        // coba.kelilingPersegiPanjang();
+        // coba.luasPersegiPanjang();
+
+        // //Inheritance
+        // class Employee {
+        //     constructor(name,age){
+        //         this.name = name;
+        //         this.age = age;
+        //     }
+        // }
+
+        // class manager extends Employee {
+        //     constructor(hp){
+        //         super();
+        //         this.hp=hp;
+        //     }
+        //     sayHello(){
+        //         console.log("tes : "+this.name+" hape :"+this.hp)
+        //     }
+        // }
+
+        // const tes = new manager("suryo",21,"lala");
+        // tes.sayHello();
+
+        // //Private
+
+        // class Student{
+            
+        //     nama;
+        //     #nilai;
+
+        //     constructor(nama){
+        //         this.nama = nama;
+        //     }
+
+        //     // get nilai(){
+        //     //     return this.#nilai;
+        //     // }
+
+        //     set nilai(ulangan){
+        //         this.#nilai=ulangan;
+        //     }
+
+        //     #calculatePoint(){
+        //         return this.#nilai;
+        //     }
+
+        //     printPoint(){
+        //         console.log("Nilai "+ this.#calculatePoint())
+        //     }
+        // }
+
+        // hoho = new Student("Hoho");
+        // hoho.nilai = 90;
+        // console.log(console.log(hoho.nama)) 
+        // hoho.printPoint();
+
+        class Companny{
+            static namaPerusahaan = 'PT LALALALA';
+            static totalKaryawan = 100;
+            static #resign = 0;
+        
+            static resign(){
+                this.#resign++;
+                return this.#resign;
+            }
+
+            static get totalKaryawan1(){
+                console.log(this.#resign)
+                return this.totalKaryawan - this.#resign;
+            }
+        
+        }
+
+        class Karyawan {
+            constructor(nama,umur,namaPerusahaan){
+                this.nama=nama;
+                this.umur=umur;
+                this.namaPerusahaan = Companny.namaPerusahaan;
+            }
+        }
+
+        // console.log(Companny.resign())
+        // Companny.resign()
+        // Companny.resign()
+        Companny.resign()
+        console.log(Companny.totalKaryawan1);
+
+        // suryo = new Karyawan("lala",22);
+        // console.log(suryo.namaPerusahaan)
+
+    </script>
+</body>
+
+</html>
